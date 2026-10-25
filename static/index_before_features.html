@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>LEVEL UP 365</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">L</span><div><b>LEVEL UP</b><small>365 · YOUR YEAR</small></div></div>
+    <div class="datebox"><span class="live-dot"></span><span id="today">BUGUN</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">SENING YANGI BOSHLANISHING</div>
+      <h1>Kelajagingni<br><span>bugun qur.</span></h1>
+      <p>Katta o'zgarishlar kichik, tugallangan ishlardan boshlanadi.</p>
+      <div class="hero-meta"><span>◈ 365 KUNLIK SAFAR</span><span>✦ HAR KUN OLDINGA</span></div>
+    </div>
+    <div class="level-ring" id="ring"><div><span>LEVEL</span><strong id="level">01</strong><small id="rank">BEGINNER</small></div></div>
+  </section>
+
+  <section class="stats">
+    <article class="stat"><span class="stat-icon">⚡</span><small>JAMI XP</small><strong id="xp">0</strong><span class="muted">tajriba ballari</span></article>
+    <article class="stat"><span class="stat-icon">◷</span><small>BUGUN</small><strong id="percent">0%</strong><span class="muted">vazifalar bajarildi</span></article>
+    <article class="stat"><span class="stat-icon">♨</span><small>STREAK</small><strong id="streak">0 <i>kun</i></strong><span class="muted">ketma-ket kunlar</span></article>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><div class="eyebrow">BUGUNGI MISSIYA</div><h2>Vazifalaring</h2></div><span class="counter" id="taskCount">0 / 0</span></div>
+    <div class="progress-track"><div id="progressBar"></div></div>
+    <div class="task-list" id="taskList"></div>
+    <form id="taskForm" class="add-form"><input id="taskInput" maxlength="100" placeholder="Yangi vazifa qo'sh..." required><button aria-label="Vazifa qo'sh">+</button></form>
+    <div class="hint">Har bir tugallangan vazifa — oldinga bir qadam.</div>
+    <div class="daily-xp-panel">
+      <div>
+        <span class="daily-xp-label">BUGUNGI XP</span>
+        <strong><span id="dayXp">0</span> XP</strong>
+        <small id="dayFinalizeStatus">Kun hali yakunlanmagan</small>
+        <div class="goal-heading">
+          <span>🎯 KUNLIK MAQSAD</span>
+          <strong><span id="goalProgress">0</span>%</strong>
+        </div>
+        <div class="goal-track">
+          <div id="goalBar"></div>
+        </div>
+        <small id="goalLabel">Maqsad: 100 XP</small>
+      </div>
+      <button id="finalizeDay" class="primary-btn">Kunni yakunlash ✓</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><div class="eyebrow">O'ZINGGA SARMOYA</div><h2>Rivojlanish xaritasi</h2></div></div>
+    <div class="focus-grid">
+      <div class="focus-card"><span>01 / KNOWLEDGE</span><b>🧠 Bilim</b><p>Stomatologiya, gistologiya va fiziologiya.</p><button data-add="Stomatologiya: 45 daqiqa diqqat bilan o'qish">+ Vazifa qo'sh</button></div>
+      <div class="focus-card"><span>02 / BODY</span><b>💪 Jismoniy kuch</b><p>Mashqlar, muntazamlik va tiklanish.</p><button data-add="30 daqiqa jismoniy mashq">+ Vazifa qo'sh</button></div>
+      <div class="focus-card"><span>03 / LANGUAGE</span><b>📚 Ingliz tili</b><p>So'z yodlash va takrorlash.</p><button data-add="Ingliz tilidan 10 ta so'z yodlash">+ Vazifa qo'sh</button></div>
+      <div class="focus-card"><span>04 / DISCIPLINE</span><b>🎯 Intizom</b><p>Rejani yakunlash va o'zini tekshirish.</p><button data-add="Kunni tahlil qilish va ertangi rejani yozish">+ Vazifa qo'sh</button></div>
+    </div>
+  </section>
+
+  <section class="panel calendar-panel">
+    <div class="section-head">
+      <div><div class="eyebrow">365 KUNLIK SAFAR</div><h2>Faollik kalendari</h2></div>
+    </div>
+    <div class="calendar-nav">
+      <button type="button" id="calendarPrev">‹</button>
+      <strong id="calendarMonthLabel">Kalendar</strong>
+      <button type="button" id="calendarNext">›</button>
+    </div>
+    <div class="calendar-weekdays">
+      <span>Du</span><span>Se</span><span>Ch</span><span>Pa</span>
+      <span>Ju</span><span>Sh</span><span>Ya</span>
+    </div>
+    <div id="calendarGrid" class="calendar-grid"></div>
+    <div class="calendar-legend">
+      <span>🟢 Faol kun</span><span>🟩 Barcha vazifalar bajarilgan</span>
+    </div>
+    <div id="calendarDetail" class="calendar-detail"></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><div class="eyebrow">KUN OXIRIDA</div><h2>O'zingga hisobot</h2></div></div>
+    <label class="field-label" for="notes">Bugun nimani tugatding? Nima xalaqit berdi?</label>
+    <textarea id="notes" maxlength="2000" placeholder="Bugungi xulosalaringni yoz..."></textarea>
+    <div class="row"><label class="field-label" for="weight">Vazn (kg), ixtiyoriy</label><input id="weight" type="number" min="25" max="300" step="0.1" placeholder="Masalan, 60"></div>
+    <button class="primary-btn" id="saveNotes">Hisobotni saqlash ↗</button>
+    <p class="save-status" id="saveStatus">Ma'lumotlar ushbu qurilmada saqlanadi.</p>
+  </section>
+
+  <footer><span>LEVEL UP 365</span><span>BUGUNGI HARAKAT · ERTANGI NATIJA</span></footer>
+</div>
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>

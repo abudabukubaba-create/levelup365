@@ -1,0 +1,16 @@
+node_modules/
+.gradle/
+android/.gradle/
+android/local.properties
+android/**/build/
+.env
+*.keystore
+*.jks
+
+# Personal data and backups
+data/
+backup_pwa/
+__pycache__/
+*.pyc
+patch_xp.py
+update_daily_tasks.py

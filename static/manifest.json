@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "LEVEL UP 365 — Shaxsiy rivojlanish",
+  "short_name": "LEVEL UP 365",
+  "description": "Har kuni o'zingning yaxshiroq versiyangga aylan.",
+  "lang": "uz",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090b10",
+  "theme_color": "#090b10",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
