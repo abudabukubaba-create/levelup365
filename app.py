@@ -77,4 +77,5 @@ if __name__ == "__main__":
     print("\nLEVEL UP 365 ishga tushmoqda...")
     print("Brauzerda och: http://127.0.0.1:8000")
     print("To'xtatish: CTRL+C\n")
-    ThreadingHTTPServer(("127.0.0.1", 8000), Handler).serve_forever()
+    port = int(os.environ.get("PORT", "8000"))
+    ThreadingHTTPServer(("0.0.0.0", port), Handler).serve_forever()
